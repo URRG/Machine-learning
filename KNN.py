@@ -39,4 +39,15 @@ classes={0:'setosa',1:'versicolor',2:'virginica'}
 
 R = int(input("Enter the number of rows:"))
 C = int(input("Enter the number of columns:"))
-  
+matrix = []
+print("Enter the entries rowwise:")  
+# input from user
+for i in range(R):          
+    a =[]
+    for j in range(C):      
+         a.append(float(input()))
+    matrix.append(a)
+
+y_pred=knn.predict(matrix)
+print(classes[y_pred[0]])
+print(classes[y_pred[1]])
