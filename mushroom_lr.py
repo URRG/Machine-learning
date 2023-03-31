@@ -36,3 +36,13 @@ x = mush.drop(["class"],axis=1)
 x_train,x_test,y_train,y_test = train_test_split(x,y,random_state=42,test_size = 0.25)
 # used train test split to break the data so that it becomes suitable for application of confusion matrix
 
+from sklearn.metrics import confusion_matrix
+from sklearn.linear_model import LogisticRegression as lr
+y_pred_lr = lr.predict(x_test)
+y_true_lr = y_test
+cm = confusion_matrix(y_true_lr, y_pred_lr)
+f, ax = plot.subplots(figsize =(5,5))
+sns.heatmap(cm,annot = True,linewidths=0.5,linecolor="red",fmt = ".0f",ax=ax)
+plot.xlabel("y_pred_lr")
+plot.ylabel("y_true_lr")
+plot.show()
